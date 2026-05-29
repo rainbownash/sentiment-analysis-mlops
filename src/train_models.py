@@ -11,14 +11,14 @@ from sklearn.preprocessing import LabelEncoder
 
 from gensim.models import Word2Vec
 
-from features.preprocessing import clean_base
-from features.text_features import build_bow_matrix, prepare_w2v_tokens, preprocess_bow
-from features.embeddings import review_vector
-from models.evaluation import get_metrics
+from src.features.preprocessing import clean_base
+from src.features.text_features import build_bow_matrix, prepare_w2v_tokens, preprocess_bow
+from src.features.embeddings import review_vector
+from src.models.evaluation import get_metrics
 
-from pipeline import run_experiment
+from src.pipeline import run_experiment
 
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
+PROJECT_ROOT = Path("/app")
 
 # CARGAR DATOS
 

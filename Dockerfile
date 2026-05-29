@@ -10,7 +10,7 @@ COPY . .
 
 ENV PYTHONPATH=/app
 
-RUN python src/train_models.py
+RUN python -m src.train_models
 
 EXPOSE 10000
 
