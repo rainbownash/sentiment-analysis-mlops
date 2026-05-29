@@ -1,0 +1,20 @@
+# entorno virtual
+.venv/
+venv/
+
+# cache
+__pycache__/
+*.__pycache__
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# sistema
+.DS_Store
+
+# entorno
+.env
+
+# modelos
+models/
+*.pkl
