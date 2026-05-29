@@ -17,7 +17,7 @@ le = None
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    global model, vectorizer
+    global model, vectorizer, le
 
     model = joblib.load(MODEL_PATH)
     vectorizer = joblib.load(VECTORIZER_PATH)
