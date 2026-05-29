@@ -6,8 +6,8 @@ from contextlib import asynccontextmanager
 
 PROJECT_ROOT = Path.cwd()
 
-MODEL_PATH = PROJECT_ROOT / "models/bow/bow_lr.pkl"
-VECTORIZER_PATH = PROJECT_ROOT / "models/bow/bow_vectorizer.pkl"
+MODEL_PATH = PROJECT_ROOT / "artifacts/bow/bow_lr.pkl"
+VECTORIZER_PATH = PROJECT_ROOT / "artifacts/bow/bow_vectorizer.pkl"
 
 # artefactos
 model = None

@@ -164,22 +164,22 @@ results = pd.concat([
 results_sorted = results.sort_values(by="F1 macro", ascending=False)
 
 # GUARDADO
-Path(PROJECT_ROOT / "models/bow").mkdir(parents=True, exist_ok=True)
-Path(PROJECT_ROOT / "models/w2v").mkdir(parents=True, exist_ok=True)
+Path(PROJECT_ROOT / "artifacts/bow").mkdir(parents=True, exist_ok=True)
+Path(PROJECT_ROOT / "artifacts/w2v").mkdir(parents=True, exist_ok=True)
 Path(PROJECT_ROOT / "results").mkdir(parents=True, exist_ok=True)
 
-joblib.dump(bow_lr, PROJECT_ROOT / "models/bow/bow_lr.pkl")
-joblib.dump(bow_rf, PROJECT_ROOT / "models/bow/bow_rf.pkl")
-joblib.dump(bow_svm, PROJECT_ROOT / "models/bow/bow_svm.pkl")
+joblib.dump(bow_lr, PROJECT_ROOT / "artifacts/bow/bow_lr.pkl")
+joblib.dump(bow_rf, PROJECT_ROOT / "artifacts/bow/bow_rf.pkl")
+joblib.dump(bow_svm, PROJECT_ROOT / "artifacts/bow/bow_svm.pkl")
 
-joblib.dump(vectorizer, PROJECT_ROOT / "models/bow/bow_vectorizer.pkl")
+joblib.dump(vectorizer, PROJECT_ROOT / "artifacts/bow/bow_vectorizer.pkl")
 
-joblib.dump(w2v_lr, PROJECT_ROOT / "models/w2v/w2v_lr.pkl")
-joblib.dump(w2v_rf, PROJECT_ROOT / "models/w2v/w2v_rf.pkl")
-joblib.dump(w2v_svm, PROJECT_ROOT / "models/w2v/w2v_svm.pkl")
+joblib.dump(w2v_lr, PROJECT_ROOT / "artifacts/w2v/w2v_lr.pkl")
+joblib.dump(w2v_rf, PROJECT_ROOT / "artifacts/w2v/w2v_rf.pkl")
+joblib.dump(w2v_svm, PROJECT_ROOT / "artifacts/w2v/w2v_svm.pkl")
 
-w2v_model.save(str(PROJECT_ROOT / "models/w2v/word2vec.model"))
+w2v_model.save(str(PROJECT_ROOT / "artifacts/w2v/word2vec.model"))
 
 results_sorted.to_csv(PROJECT_ROOT / "results/model_comparison.csv", index=False)
 
-joblib.dump(le, PROJECT_ROOT / "models/le.pkl")
+joblib.dump(le, PROJECT_ROOT / "artifacts/le.pkl")
