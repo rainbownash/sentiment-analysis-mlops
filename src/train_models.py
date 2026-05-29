@@ -12,7 +12,7 @@ from sklearn.preprocessing import LabelEncoder
 from gensim.models import Word2Vec
 
 from src.features.preprocessing import clean_base
-from src.features.text_features import build_bow_matrix, prepare_w2v_tokens
+from src.features.text_features import build_bow_matrix, prepare_w2v_tokens, preprocess_bow
 from src.features.embeddings import review_vector
 from src.models.evaluation import get_metrics
 
@@ -28,6 +28,8 @@ df = pd.read_csv(DATA_PATH)
 
 # LIMPIEZA Y PREPROCESADO
 df['text_clean'] = df.apply(lambda x: clean_base(x['review_body'], x['language']), axis=1)
+
+df['tokens_bow'] = df.apply(lambda x: preprocess_bow(x['text_clean'], x['language']), axis=1)
 
 X_bow, vectorizer = build_bow_matrix(df)
 
