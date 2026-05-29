@@ -4,7 +4,7 @@ import joblib
 from pathlib import Path
 from contextlib import asynccontextmanager
 
-PROJECT_ROOT = Path("/app")
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 MODEL_PATH = PROJECT_ROOT / "models/bow/bow_lr.pkl"
 VECTORIZER_PATH = PROJECT_ROOT / "models/bow/bow_vectorizer.pkl"

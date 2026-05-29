@@ -18,7 +18,7 @@ from src.models.evaluation import get_metrics
 
 from src.pipeline import run_experiment
 
-PROJECT_ROOT = Path("/app")
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 # CARGAR DATOS
 
