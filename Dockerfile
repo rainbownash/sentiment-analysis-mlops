@@ -8,9 +8,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-ENV PYTHONPATH=/app
+ENV PYTHONPATH=/app/src
 
-RUN python -m src.train_models
+RUN python src/train_models.py
 
 EXPOSE 10000
 
