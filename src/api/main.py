@@ -34,6 +34,10 @@ class TextInput(BaseModel):
     text: str
 
 # endpoint
+@app.get("/")
+def root():
+    return {"message": "Sentiment Analysis API running"}
+
 @app.post("/predict")
 def predict(input_data: TextInput):
 
