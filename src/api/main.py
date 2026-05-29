@@ -2,18 +2,32 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import joblib
 from pathlib import Path
+from contextlib import asynccontextmanager
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 MODEL_PATH = PROJECT_ROOT / "models/bow/bow_lr.pkl"
 VECTORIZER_PATH = PROJECT_ROOT / "models/bow/bow_vectorizer.pkl"
 
-# artefactos
-model = joblib.load(MODEL_PATH)
-vectorizer = joblib.load(VECTORIZER_PATH)
+# artefactos
+model = None
+vectorizer = None
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    global model, vectorizer
+
+    model = joblib.load(MODEL_PATH)
+    vectorizer = joblib.load(VECTORIZER_PATH)
+
+    print("Models loaded")
+
+    yield
+
+    print("Shut down")
 
 # app
-app = FastAPI(title="Sentiment Analysis API")
+app = FastAPI(title="Sentiment Analysis API", lifespan=lifespan)
 
 # input
 class TextInput(BaseModel):
