@@ -5,3 +5,5 @@ pandas
 scikit-learn
 gensim
 joblib
+pytest
+httpx
